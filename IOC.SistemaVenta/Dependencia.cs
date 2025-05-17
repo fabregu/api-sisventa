@@ -1,4 +1,6 @@
 ﻿using DAL.SistemaVenta.DBContext;
+using DAL.SistemaVenta.Repositorios;
+using DAL.SistemaVenta.Repositorios.Contrato;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -19,6 +21,9 @@ namespace IOC.SistemaVenta
                 options.UseSqlServer(configuration.GetConnectionString("cadenaSql"));
             
             });
+
+            services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            services.AddScoped<IVentaRepository, VentaRepository>();
         }
     }
 }
