@@ -1,4 +1,5 @@
-﻿using DAL.SistemaVenta.Repositorios.Contrato;
+﻿using DAL.SistemaVenta.DBContext;
+using DAL.SistemaVenta.Repositorios.Contrato;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
@@ -6,12 +7,12 @@ namespace DAL.SistemaVenta.Repositorios
 {
     public class GenericRepository<TModelo>: IGenericRepository<TModelo> where TModelo : class
     {
-        private readonly DbContext _dbcontext;
-
-        public GenericRepository(DbContext dbcontext)
+        private readonly DbventaContext _dbcontext;
+        public GenericRepository(DbventaContext dbcontext)
         {
             _dbcontext = dbcontext;
-        }  
+        }
+
         public async Task<TModelo> Obtener(Expression<Func<TModelo, bool>> filtro)
         {
             try
