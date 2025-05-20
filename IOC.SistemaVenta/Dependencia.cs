@@ -1,4 +1,6 @@
-﻿using DAL.SistemaVenta.DBContext;
+﻿using BLL.SistemaVenta.Servicios;
+using BLL.SistemaVenta.Servicios.Contrato;
+using DAL.SistemaVenta.DBContext;
 using DAL.SistemaVenta.Repositorios;
 using DAL.SistemaVenta.Repositorios.Contrato;
 using Microsoft.EntityFrameworkCore;
@@ -22,6 +24,14 @@ namespace IOC.SistemaVenta
             services.AddScoped<IVentaRepository, VentaRepository>();
 
             services.AddAutoMapper(typeof(AutoMaperProfile));
+
+            services.AddScoped<IRolService, RolService>();
+            services.AddScoped<IUsuarioService, UsuarioService>();
+            services.AddScoped<ICategoriaService, CategoriaService>();
+            services.AddScoped<IProductoService, ProductoService>();
+            services.AddScoped<IVentaService, VentaService>();
+            services.AddScoped<IDashboardService, DashboardService>();
+            services.AddScoped<IMenuService, MenuService>();
         }
     }
 }
