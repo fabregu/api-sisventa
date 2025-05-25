@@ -37,6 +37,9 @@ namespace Utility.SistemaVenta
                     destino.EsActivo,
                     opt => opt.MapFrom(origen => origen.EsActivo == 1 ? true : false)
                  );
+
+            CreateMap<Usuario, SesionDTO>()
+            .ForMember(dest => dest.RolDescripcion, opt => opt.MapFrom(src => src.IdRolNavigation.Nombre));
             #endregion
 
             #region Categoria
