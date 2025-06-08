@@ -68,7 +68,7 @@ namespace BLL.SistemaVenta.Servicios
             return _mapper.Map<List<VentaDTO>>(listaResultado);
         }              
 
-        public async Task<List<VentaDTO>> Reporte(string fechainicio, string fechaFin)
+        public async Task<List<ReporteDTO>> Reporte(string fechainicio, string fechaFin)
         {
             IQueryable<DetalleVenta> query = await _detalleVentaRepository.Consultar();
             var listaResultado = new List<DetalleVenta>();
@@ -89,7 +89,7 @@ namespace BLL.SistemaVenta.Servicios
             {
                 throw new Exception("Error al obtener el reporte de ventas", ex);
             }
-            return _mapper.Map<List<VentaDTO>>(listaResultado);
+            return _mapper.Map<List<ReporteDTO>>(listaResultado);
         }
     }
 }

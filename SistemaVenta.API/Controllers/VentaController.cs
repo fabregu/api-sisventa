@@ -62,13 +62,14 @@ namespace SistemaVenta.API.Controllers
         [Route("Reporte")]
         public async Task<IActionResult> Reporte(string? fechaInicio, string? fechaFin)
         {
-            var response = new Response<List<VentaDTO>>();
-            //var response = new Response<List<ReporteDTO>>(); da error
+            //var response = new Response<List<VentaDTO>>();
+            var response = new Response<List<ReporteDTO>>(); 
 
             try
             {
-                response.value = await _ventaService.Reporte(fechaInicio, fechaFin);
                 response.status = true;
+                response.value = await _ventaService.Reporte(fechaInicio, fechaFin);
+                
             }
             catch (Exception ex)
             {

@@ -6,6 +6,6 @@ namespace BLL.SistemaVenta.Servicios.Contrato
     {
         Task<VentaDTO> Registrar(VentaDTO ventaDTO);
         Task<List<VentaDTO>> Historial( string buscarPor, string numeroVenta, string fechainicio, string fechaFin);
-        Task<List<VentaDTO>> Reporte( string fechainicio, string fechaFin);        
+        Task<List<ReporteDTO>> Reporte( string fechainicio, string fechaFin);        
     }
 }
